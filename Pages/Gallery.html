@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="../css/Css_Style.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+  <div class="row" id="header">
+    <div id="dropdown-menu">
+        <span><i class="ico burger-ico"></i>MENU</span>
+        <div class="dropdown-content">
+            <ul>
+              <a href="index.html">
+                <li><i class="ico ico-l burger-ico"></i>Back to Menu</li>
+              </a>
+              <a href="WebCV.html">
+                <li><i class="ico ico-l CV-ico"></i>CV</li>
+              </a>
+              <a href="Gallery.html">
+                <li><i class="ico ico-l gall-ico"></i>Gallery</li>
+              </a>
+              <a href="Contact.html">
+                <li><i class="ico ico-l Contact-ico"></i>Contact us</li>
+              </a>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+  <div>
+    <h1 style="text-align: center; margin-top: 51px;">My Gallery</h1>
+  </div>
+  
+  <div class="gallery" id="galleryContainer">
+    <!-- Gallery items will be dynamically added here using JavaScript -->
+  </div>
+
+  <script>
+    // Fetch data using JavaScript and update the gallery
+    fetch('../Pages/php/gallery.php')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('galleryContainer').innerHTML = data;
+      })
+      .catch(error => console.error('Error fetching gallery data:', error));
+  </script>
+</body>
+</html>
